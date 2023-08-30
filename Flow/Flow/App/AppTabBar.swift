@@ -8,37 +8,48 @@
 import SwiftUI
 
 struct AppTabBar: View {
-    @ObservedObject var tabCoordinator: AppTabBarCoordinator
+    @ObservedObject var appCoordinator: AppCoordinator
 
-//    @ObservedObject var Stack
+    init(appCoordinator: AppCoordinator) {
+        self.appCoordinator = appCoordinator
+    }
 
     var body: some View {
-        TabView(selection: $tabCoordinator.selectedTab) {
-            DashboardRoute(coordinator: tabCoordinator.coordinator)
+        TabView(selection: $appCoordinator.selectedTab) {
+            DashboardCoordinator(appCoordinator: appCoordinator)
                 .build()
+                .navigationTitle("Dashboard")
                 .tabItem {
                     Text("Dashboard")
                 }
+                .tag(AppCoordinator.Tabs.dashboard)
 
             CalendarView()
+                .navigationTitle("Calendar")
                 .tabItem {
                     Text("Calendar")
                 }
+                .tag(AppCoordinator.Tabs.calendar)
 
             SettingsView()
+                .navigationTitle("Settings")
                 .tabItem {
                     Text("Settings")
                 }
+                .tag(AppCoordinator.Tabs.settings)
+        }
+        .fullScreenCover(isPresented: $appCoordinator.shouldLogIn) {
+            LoginRouter {
+                self.appCoordinator.dismiss(sheet: .login)
+            }
+            .build()
         }
     }
 }
 
 struct AppTabBar_Previews: PreviewProvider {
     static var previews: some View {
-        AppTabBar(
-            tabCoordinator: AppTabBarCoordinator(
-                                coordinator: AppCoordinator(),
-                                selectedTab: .dashboard)
-        )
+        AppCoordinator(isLoggedIn: false)
+            .build()
     }
 }

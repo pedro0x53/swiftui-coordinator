@@ -13,9 +13,7 @@ struct FlowApp: App {
 
     var body: some Scene {
         WindowGroup {
-            NavigationStack(path: $appCoordinator.path.navigationPath) {
-                appCoordinator.build()
-            }
+            appCoordinator.build()
         }
     }
 }

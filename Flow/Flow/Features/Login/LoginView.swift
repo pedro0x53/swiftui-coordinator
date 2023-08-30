@@ -8,20 +8,32 @@
 import SwiftUI
 
 struct LoginView: View {
-    var router: LoginRoute
+    @ObservedObject var route: LoginRouter
 
     var body: some View {
-        Button("Go to Dashboard") {
-            router.push(
-                LoginRoute.Coordinates.tabView(selectedTab: .dashboard)
-            )
+        NavigationStack(path: $route.path) {
+            VStack {
+                Button("Push to forget Password") {
+                    route.push(LoginRouter.Coordinates.forgetPassword())
+                }
+
+                Button("Go to Dashboard") {
+                    route.dismiss?()
+                }
+            }
+            .navigationTitle("Login")
+            .navigationDestination(for: LoginRouter.Coordinates.self) { coordinate in
+                switch coordinate {
+                case .forgetPassword(email: let email):
+                    ForgetPasswordView(email: email)
+                }
+            }
         }
-        .navigationTitle("Login")
     }
 }
 
 struct LoginViewPreview: PreviewProvider {
     static var previews: some View {
-        LoginView(router: .init(coordinator: AppCoordinator()))
+        LoginRouter().build()
     }
 }

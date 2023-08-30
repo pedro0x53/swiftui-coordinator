@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProjectEditorAdditionalView: View {
+    @ObservedObject var router: ProjectEditorStackCoordinator
+
     var body: some View {
         Text("Second Step")
     }
@@ -15,6 +17,6 @@ struct ProjectEditorAdditionalView: View {
 
 struct ProjectEditorAdditionalView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectEditorAdditionalView()
+        ProjectEditorAdditionalView(router: .init())
     }
 }

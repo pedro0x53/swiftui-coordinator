@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		FE05C6DC2A9515F5004D7D20 /* FlowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05C6DB2A9515F5004D7D20 /* FlowApp.swift */; };
-		FE05C6DE2A9515F5004D7D20 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05C6DD2A9515F5004D7D20 /* ContentView.swift */; };
 		FE05C6E02A9515F7004D7D20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE05C6DF2A9515F7004D7D20 /* Assets.xcassets */; };
 		FE05C6E32A9515F7004D7D20 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE05C6E22A9515F7004D7D20 /* Preview Assets.xcassets */; };
 		FE05C6ED2A9515F7004D7D20 /* FlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05C6EC2A9515F7004D7D20 /* FlowTests.swift */; };
@@ -19,19 +18,18 @@
 		FE05C71C2A951B54004D7D20 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05C71B2A951B54004D7D20 /* AppCoordinator.swift */; };
 		FE05C71E2A951C7A004D7D20 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05C71D2A951C7A004D7D20 /* DashboardView.swift */; };
 		FE05C7202A952C62004D7D20 /* AppTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05C71F2A952C62004D7D20 /* AppTabBar.swift */; };
-		FE1FE7A02A97C6E200EF90C7 /* WrappedPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1FE79F2A97C6E200EF90C7 /* WrappedPublisher.swift */; };
 		FE1FE7A42A97EC4500EF90C7 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1FE7A32A97EC4500EF90C7 /* CalendarView.swift */; };
 		FE1FE7A62A97EC5500EF90C7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1FE7A52A97EC5500EF90C7 /* SettingsView.swift */; };
-		FE1FE7A82A98497600EF90C7 /* AppTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1FE7A72A98497600EF90C7 /* AppTabBarCoordinator.swift */; };
-		FE4849482A96E37C0031FEA4 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4849472A96E37C0031FEA4 /* Path.swift */; };
+		FE4848A52A9EB71A0067971B /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4848A42A9EB71A0067971B /* VideoView.swift */; };
+		FE4848A72A9EB7400067971B /* VideoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4848A62A9EB7400067971B /* VideoRouter.swift */; };
 		FE48494A2A96F61C0031FEA4 /* StackCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4849492A96F61C0031FEA4 /* StackCoordinator.swift */; };
 		FE48494C2A9792C70031FEA4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE48494B2A9792C70031FEA4 /* Coordinator.swift */; };
 		FE48494E2A9792E60031FEA4 /* FlowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE48494D2A9792E60031FEA4 /* FlowBuilder.swift */; };
 		FE4849502A9792F90031FEA4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE48494F2A9792F90031FEA4 /* Router.swift */; };
 		FE4849522A97930F0031FEA4 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4849512A97930F0031FEA4 /* TabCoordinator.swift */; };
 		FE4849542A9793200031FEA4 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4849532A9793200031FEA4 /* Presenter.swift */; };
-		FEC01C1E2A95524400391B1A /* DashboardRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC01C1D2A95524400391B1A /* DashboardRoute.swift */; };
-		FEC01C202A95525C00391B1A /* LoginRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC01C1F2A95525C00391B1A /* LoginRoute.swift */; };
+		FEC01C1E2A95524400391B1A /* DashboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC01C1D2A95524400391B1A /* DashboardCoordinator.swift */; };
+		FEC01C202A95525C00391B1A /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC01C1F2A95525C00391B1A /* LoginRouter.swift */; };
 		FEC01C252A959EA200391B1A /* ProjectEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC01C242A959EA200391B1A /* ProjectEditorView.swift */; };
 		FEC01C272A959F8E00391B1A /* ProjectEditorAdditionalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC01C262A959F8E00391B1A /* ProjectEditorAdditionalView.swift */; };
 		FEC01C292A959FA500391B1A /* ProjectEditorStackCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC01C282A959FA500391B1A /* ProjectEditorStackCoordinator.swift */; };
@@ -57,7 +55,6 @@
 /* Begin PBXFileReference section */
 		FE05C6D82A9515F5004D7D20 /* Flow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE05C6DB2A9515F5004D7D20 /* FlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowApp.swift; sourceTree = "<group>"; };
-		FE05C6DD2A9515F5004D7D20 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FE05C6DF2A9515F7004D7D20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE05C6E22A9515F7004D7D20 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FE05C6E82A9515F7004D7D20 /* FlowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,19 +67,18 @@
 		FE05C71B2A951B54004D7D20 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		FE05C71D2A951C7A004D7D20 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		FE05C71F2A952C62004D7D20 /* AppTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBar.swift; sourceTree = "<group>"; };
-		FE1FE79F2A97C6E200EF90C7 /* WrappedPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedPublisher.swift; sourceTree = "<group>"; };
 		FE1FE7A32A97EC4500EF90C7 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		FE1FE7A52A97EC5500EF90C7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		FE1FE7A72A98497600EF90C7 /* AppTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarCoordinator.swift; sourceTree = "<group>"; };
-		FE4849472A96E37C0031FEA4 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
+		FE4848A42A9EB71A0067971B /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		FE4848A62A9EB7400067971B /* VideoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRouter.swift; sourceTree = "<group>"; };
 		FE4849492A96F61C0031FEA4 /* StackCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCoordinator.swift; sourceTree = "<group>"; };
 		FE48494B2A9792C70031FEA4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		FE48494D2A9792E60031FEA4 /* FlowBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowBuilder.swift; sourceTree = "<group>"; };
 		FE48494F2A9792F90031FEA4 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		FE4849512A97930F0031FEA4 /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
 		FE4849532A9793200031FEA4 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
-		FEC01C1D2A95524400391B1A /* DashboardRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRoute.swift; sourceTree = "<group>"; };
-		FEC01C1F2A95525C00391B1A /* LoginRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRoute.swift; sourceTree = "<group>"; };
+		FEC01C1D2A95524400391B1A /* DashboardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCoordinator.swift; sourceTree = "<group>"; };
+		FEC01C1F2A95525C00391B1A /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		FEC01C242A959EA200391B1A /* ProjectEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectEditorView.swift; sourceTree = "<group>"; };
 		FEC01C262A959F8E00391B1A /* ProjectEditorAdditionalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectEditorAdditionalView.swift; sourceTree = "<group>"; };
 		FEC01C282A959FA500391B1A /* ProjectEditorStackCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectEditorStackCoordinator.swift; sourceTree = "<group>"; };
@@ -189,14 +185,12 @@
 		FE05C7072A951610004D7D20 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				FE4849472A96E37C0031FEA4 /* Path.swift */,
 				FE48494B2A9792C70031FEA4 /* Coordinator.swift */,
 				FE48494D2A9792E60031FEA4 /* FlowBuilder.swift */,
 				FE4849492A96F61C0031FEA4 /* StackCoordinator.swift */,
 				FE48494F2A9792F90031FEA4 /* Router.swift */,
 				FE4849512A97930F0031FEA4 /* TabCoordinator.swift */,
 				FE4849532A9793200031FEA4 /* Presenter.swift */,
-				FE1FE79F2A97C6E200EF90C7 /* WrappedPublisher.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -206,7 +200,6 @@
 			children = (
 				FE05C6DB2A9515F5004D7D20 /* FlowApp.swift */,
 				FE05C71B2A951B54004D7D20 /* AppCoordinator.swift */,
-				FE1FE7A72A98497600EF90C7 /* AppTabBarCoordinator.swift */,
 				FE05C71F2A952C62004D7D20 /* AppTabBar.swift */,
 			);
 			path = App;
@@ -218,10 +211,10 @@
 				FE05C7142A951A75004D7D20 /* Login */,
 				FE05C7152A951A7C004D7D20 /* ForgetPassword */,
 				FE05C7162A951A8B004D7D20 /* Dashboard */,
+				FE4848A32A9EB6D60067971B /* Video */,
 				FE1FE7A12A97EC2E00EF90C7 /* Calendar */,
 				FE1FE7A22A97EC3300EF90C7 /* Settings */,
 				FEC01C232A959E8D00391B1A /* ProjectEditor */,
-				FE05C6DD2A9515F5004D7D20 /* ContentView.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -230,7 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				FE05C7172A951AA0004D7D20 /* LoginView.swift */,
-				FEC01C1F2A95525C00391B1A /* LoginRoute.swift */,
+				FEC01C1F2A95525C00391B1A /* LoginRouter.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -247,7 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				FE05C71D2A951C7A004D7D20 /* DashboardView.swift */,
-				FEC01C1D2A95524400391B1A /* DashboardRoute.swift */,
+				FEC01C1D2A95524400391B1A /* DashboardCoordinator.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -266,6 +259,15 @@
 				FE1FE7A52A97EC5500EF90C7 /* SettingsView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		FE4848A32A9EB6D60067971B /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				FE4848A42A9EB71A0067971B /* VideoView.swift */,
+				FE4848A62A9EB7400067971B /* VideoRouter.swift */,
+			);
+			path = Video;
 			sourceTree = "<group>";
 		};
 		FEC01C232A959E8D00391B1A /* ProjectEditor */ = {
@@ -408,9 +410,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEC01C1E2A95524400391B1A /* DashboardRoute.swift in Sources */,
+				FEC01C1E2A95524400391B1A /* DashboardCoordinator.swift in Sources */,
 				FE05C71C2A951B54004D7D20 /* AppCoordinator.swift in Sources */,
 				FE48494A2A96F61C0031FEA4 /* StackCoordinator.swift in Sources */,
+				FE4848A72A9EB7400067971B /* VideoRouter.swift in Sources */,
 				FE05C71A2A951AF2004D7D20 /* ForgetPasswordView.swift in Sources */,
 				FE05C71E2A951C7A004D7D20 /* DashboardView.swift in Sources */,
 				FE05C7202A952C62004D7D20 /* AppTabBar.swift in Sources */,
@@ -420,16 +423,13 @@
 				FE4849522A97930F0031FEA4 /* TabCoordinator.swift in Sources */,
 				FE48494C2A9792C70031FEA4 /* Coordinator.swift in Sources */,
 				FE4849502A9792F90031FEA4 /* Router.swift in Sources */,
-				FE05C6DE2A9515F5004D7D20 /* ContentView.swift in Sources */,
 				FEC01C292A959FA500391B1A /* ProjectEditorStackCoordinator.swift in Sources */,
 				FE4849542A9793200031FEA4 /* Presenter.swift in Sources */,
 				FE05C7182A951AA0004D7D20 /* LoginView.swift in Sources */,
 				FE05C6DC2A9515F5004D7D20 /* FlowApp.swift in Sources */,
-				FE1FE7A82A98497600EF90C7 /* AppTabBarCoordinator.swift in Sources */,
+				FE4848A52A9EB71A0067971B /* VideoView.swift in Sources */,
 				FEC01C252A959EA200391B1A /* ProjectEditorView.swift in Sources */,
-				FE4849482A96E37C0031FEA4 /* Path.swift in Sources */,
-				FE1FE7A02A97C6E200EF90C7 /* WrappedPublisher.swift in Sources */,
-				FEC01C202A95525C00391B1A /* LoginRoute.swift in Sources */,
+				FEC01C202A95525C00391B1A /* LoginRouter.swift in Sources */,
 				FE1FE7A62A97EC5500EF90C7 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -597,6 +597,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -626,6 +627,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

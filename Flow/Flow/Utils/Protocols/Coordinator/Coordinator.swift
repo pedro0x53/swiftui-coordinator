@@ -7,11 +7,10 @@
 
 import Foundation
 
-protocol Coordinator {
-    func push(_ flow: any Hashable)
+protocol Coordinator: Identifiable, Hashable {
+    func push<Flow: Hashable>(_ flow: Flow)
     func pop()
     func popToRoot()
-    func pop(to flow: any Hashable)
 }
 
 extension Hashable where Self: Identifiable {

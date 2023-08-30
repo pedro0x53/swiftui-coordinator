@@ -9,9 +9,8 @@ import SwiftUI
 
 protocol Presenter: AnyObject, Identifiable, Hashable, ObservableObject {
     associatedtype Sheets
-    associatedtype Sheet: View
 
-    @ViewBuilder func present(sheet: Sheets) -> Sheet
+    func present(sheet: Sheets)
     func dismiss(sheet: Sheets)
 }
 
@@ -23,4 +22,6 @@ extension Presenter {
 
 protocol Presented {
     var dismiss: (() -> Void)? { get set }
+
+    init(dismiss: (() -> Void)?)
 }

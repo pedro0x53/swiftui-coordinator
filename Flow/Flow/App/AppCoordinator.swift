@@ -7,23 +7,49 @@
 
 import SwiftUI
 
-class AppCoordinator: StackCoordinator {
-    @ObservedObject var path: NavigationPath
-    var isLoggedIn: Bool
+class AppCoordinator: TabCoordinator, Presenter {
+    let id: UUID = UUID()
 
-    required init(path: NavigationPath) {
-        fatalError("Use the conveniece initializer init(path:isLoggedIn:)")
+    @Published var selectedTab: AppCoordinator.Tabs
+    @Published var shouldLogIn: Bool
+
+    required init(selectedTab: AppCoordinator.Tabs) {
+        self.shouldLogIn = true
+        self.selectedTab = selectedTab
     }
 
-    init(path: NavigationPath = [], isLoggedIn: Bool = false) {
-        self.path = NavigationPath(path: path)
-        self.isLoggedIn = isLoggedIn
+    init(isLoggedIn: Bool = false,
+         selectedTab: AppCoordinator.Tabs = .dashboard) {
+        self.shouldLogIn = !isLoggedIn
+        self.selectedTab = selectedTab
+    }
+
+    func select(tab: AppCoordinator.Tabs) {
+        self.selectedTab = tab
+    }
+
+    func logOut() {
+        self.shouldLogIn = true
     }
 }
 
 extension AppCoordinator {
     @ViewBuilder func build() -> some View {
-        LoginRoute(coordinator: self, isLoggedIn: isLoggedIn).build()
+        AppTabBar(appCoordinator: self)
+    }
+}
+
+extension AppCoordinator {
+    enum Sheets: String {
+        case login
+    }
+
+    func present(sheet: AppCoordinator.Sheets) {
+        self.shouldLogIn = true
+    }
+
+    func dismiss(sheet: AppCoordinator.Sheets) {
+        self.shouldLogIn = false
     }
 }
 
@@ -38,9 +64,5 @@ extension AppCoordinator {
         case dashboard
         case calendar
         case settings
-    }
-
-    enum Coordinates: String, Hashable {
-        case tabView
     }
 }

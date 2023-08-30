@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol TabCoordinator: FlowBuilder {
+protocol TabCoordinator: ObservableObject, AnyObject {
     associatedtype Tabs: Hashable
 
     var selectedTab: Tabs { get set }

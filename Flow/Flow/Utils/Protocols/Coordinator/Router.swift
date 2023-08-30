@@ -5,15 +5,17 @@
 //  Created by Pedro Sousa on 24/08/23.
 //
 
-import Foundation
+import SwiftUI
 
 protocol Router: FlowBuilder {
-    var coordinator: any StackCoordinator { get }
-    init(coordinator: any StackCoordinator)
+    associatedtype Parent: StackCoordinator
+
+    var coordinator: Parent { get }
+    init(coordinator: Parent)
 }
 
 extension Router {
-    func push(_ flow: any Hashable) {
+    func push<Flow: Hashable>(_ flow: Flow) {
         self.coordinator.push(flow)
     }
 
@@ -24,26 +26,18 @@ extension Router {
     func popToRoot() {
         self.coordinator.popToRoot()
     }
-
-    func pop(to flow: any Hashable) {
-        self.coordinator.pop(to: flow)
-    }
 }
 
-extension Router where Self: StackCoordinator {
-    func push(_ hash: any Hashable) {
-        self.path.push(hash)
-    }
-
-    func pop() {
-        self.path.pop()
-    }
-
-    func pop(to hash: any Hashable) {
-        path.pop(to: hash)
-    }
-
-    func popToRoot() {
-        path.clear()
-    }
-}
+//extension Router where Self: StackCoordinator {
+//    func push<Flow: Hashable>(_ flow: Flow) {
+//        self.path.append(flow)
+//    }
+//
+//    func pop() {
+//        self.path.removeLast()
+//    }
+//
+//    func popToRoot() {
+//        path = NavigationPath()
+//    }
+//}

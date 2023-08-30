@@ -7,32 +7,40 @@
 
 import SwiftUI
 
-enum ProjectEditorCoordinates: String, Hashable {
-    case additional
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(self.rawValue)
-    }
-}
-
 class ProjectEditorStackCoordinator: Presented, StackCoordinator {
-    var path: NavigationPath
+    let id: UUID = UUID()
+
+    @Published var path: NavigationPath
     var dismiss: (() -> Void)?
 
-    required init(path: NavigationPath = []) {
-        fatalError("Use the conveniece initializer init(presenter:path:)")
+    required init(path: NavigationPath) {
+        self.dismiss = nil
+        self.path = path
     }
 
-    init(path: NavigationPath = [], onDismiss: (() -> Void)? = nil) {
-        self.dismiss = onDismiss
-        self.path = NavigationPath(path: path)
+    required init(dismiss: (() -> Void)? = nil) {
+        self.dismiss = dismiss
+        self.path = NavigationPath()
+    }
+
+    init(path: NavigationPath = NavigationPath(),
+         dismiss: (() -> Void)? = nil) {
+        self.dismiss = dismiss
+        self.path = path
     }
 
     @ViewBuilder func build() -> some View {
-        ProjectEditorView()
-            .navigationDestination(for: ProjectEditorCoordinates.self) { _ in
-                ProjectEditorAdditionalView()
-            }
+        ProjectEditorView(router: self)
+    }
+}
+
+extension ProjectEditorStackCoordinator {
+    enum Coordinates: String, Hashable {
+        case additional
+
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(self.rawValue)
+        }
     }
 }
 

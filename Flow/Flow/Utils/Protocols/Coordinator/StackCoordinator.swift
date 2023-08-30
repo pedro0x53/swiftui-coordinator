@@ -5,27 +5,23 @@
 //  Created by Pedro Sousa on 23/08/23.
 //
 
-import Foundation
+import SwiftUI
 
 protocol StackCoordinator: FlowBuilder {
-    var path: Path { get set }
-    init(path: HashList)
+    var path: NavigationPath { get set }
+    init(path: NavigationPath)
 }
 
 extension StackCoordinator {
-    func push(_ hash: any Hashable) {
-        self.path.push(hash)
+    func push<Flow: Hashable>(_ flow: Flow) {
+        self.path.append(flow)
     }
 
     func pop() {
-        self.path.pop()
-    }
-
-    func pop(to hash: any Hashable) {
-        path.pop(to: hash)
+        self.path.removeLast()
     }
 
     func popToRoot() {
-        path.clear()
+        path = NavigationPath()
     }
 }
