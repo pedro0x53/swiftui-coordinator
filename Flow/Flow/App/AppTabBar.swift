@@ -9,14 +9,11 @@ import SwiftUI
 
 struct AppTabBar: View {
     @ObservedObject var appCoordinator: AppCoordinator
-
-    init(appCoordinator: AppCoordinator) {
-        self.appCoordinator = appCoordinator
-    }
+    var dashboardCoordinator: DashboardCoordinator
 
     var body: some View {
         TabView(selection: $appCoordinator.selectedTab) {
-            DashboardCoordinator(appCoordinator: appCoordinator)
+            dashboardCoordinator
                 .build()
                 .navigationTitle("Dashboard")
                 .tabItem {
@@ -48,8 +45,9 @@ struct AppTabBar: View {
 }
 
 struct AppTabBar_Previews: PreviewProvider {
+    static var appCoordinator: AppCoordinator = .init()
     static var previews: some View {
-        AppCoordinator(isLoggedIn: false)
-            .build()
+        AppTabBar(appCoordinator: AppTabBar_Previews.appCoordinator,
+                  dashboardCoordinator: .init(appCoordinator: AppTabBar_Previews.appCoordinator))
     }
 }

@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct LoginView: View {
-    @ObservedObject var route: LoginRouter
+    @ObservedObject var router: LoginRouter
 
     var body: some View {
-        NavigationStack(path: $route.path) {
+        NavigationStack(path: $router.path) {
             VStack {
                 Button("Push to forget Password") {
-                    route.push(LoginRouter.Coordinates.forgetPassword())
+                    router.push(LoginRouter.Coordinates.forgetPassword())
                 }
 
                 Button("Go to Dashboard") {
-                    route.dismiss?()
+                    router.dismiss()
                 }
             }
             .navigationTitle("Login")

@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum DashboardCoordinates: Hashable {
-    case project(projectName: String)
+    case video
 }
 
 enum DashboardSheets: Hashable {
@@ -18,7 +18,9 @@ enum DashboardSheets: Hashable {
 class DashboardCoordinator: StackCoordinator {
     let id: UUID = UUID()
 
-    @ObservedObject var appCoordinator: AppCoordinator
+    var appCoordinator: AppCoordinator
+    var projectEditorCoordinator: ProjectEditorStackCoordinator
+    var videoRouter: VideRouter
 
     @Published var path: NavigationPath
     @Published var isPresentingProjectEditor: Bool = false
@@ -33,14 +35,27 @@ class DashboardCoordinator: StackCoordinator {
         self.appCoordinator = appCoordinator
         self.path = path
         self.isPresentingProjectEditor = isPresentingProjectEditor
+
+        let projectEditor = ProjectEditorStackCoordinator()
+        self.projectEditorCoordinator = projectEditor
+
+        let videoRouter = VideRouter()
+        self.videoRouter = videoRouter
+
+
+        self.projectEditorCoordinator.onDismiss {
+            self.dismiss(sheet: .projectEditor())
+        }
+
+        self.videoRouter.parent = self
     }
 
-    func build() -> some View {
-        DashboardView(router: self)
+    @ViewBuilder func build() -> some View {
+        DashboardView(coordinator: self)
     }
 
     func logOut() {
-        self.path = NavigationPath()
+        self.popToRoot()
         appCoordinator.logOut()
     }
 }

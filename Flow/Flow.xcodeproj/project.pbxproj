@@ -21,13 +21,13 @@
 		FE1FE7A42A97EC4500EF90C7 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1FE7A32A97EC4500EF90C7 /* CalendarView.swift */; };
 		FE1FE7A62A97EC5500EF90C7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1FE7A52A97EC5500EF90C7 /* SettingsView.swift */; };
 		FE4848A52A9EB71A0067971B /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4848A42A9EB71A0067971B /* VideoView.swift */; };
-		FE4848A72A9EB7400067971B /* VideoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4848A62A9EB7400067971B /* VideoRouter.swift */; };
-		FE48494A2A96F61C0031FEA4 /* StackCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4849492A96F61C0031FEA4 /* StackCoordinator.swift */; };
-		FE48494C2A9792C70031FEA4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE48494B2A9792C70031FEA4 /* Coordinator.swift */; };
+		FE48494C2A9792C70031FEA4 /* StackCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE48494B2A9792C70031FEA4 /* StackCoordinator.swift */; };
 		FE48494E2A9792E60031FEA4 /* FlowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE48494D2A9792E60031FEA4 /* FlowBuilder.swift */; };
-		FE4849502A9792F90031FEA4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE48494F2A9792F90031FEA4 /* Router.swift */; };
 		FE4849522A97930F0031FEA4 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4849512A97930F0031FEA4 /* TabCoordinator.swift */; };
-		FE4849542A9793200031FEA4 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4849532A9793200031FEA4 /* Presenter.swift */; };
+		FE4849542A9793200031FEA4 /* Presenter+Presented.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4849532A9793200031FEA4 /* Presenter+Presented.swift */; };
+		FE9222C52AA13A400017EADC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9222C42AA13A400017EADC /* Router.swift */; };
+		FE9222C72AA2205C0017EADC /* VideoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9222C62AA2205C0017EADC /* VideoRouter.swift */; };
+		FE9222C92AA242080017EADC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9222C82AA242080017EADC /* Coordinator.swift */; };
 		FEC01C1E2A95524400391B1A /* DashboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC01C1D2A95524400391B1A /* DashboardCoordinator.swift */; };
 		FEC01C202A95525C00391B1A /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC01C1F2A95525C00391B1A /* LoginRouter.swift */; };
 		FEC01C252A959EA200391B1A /* ProjectEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC01C242A959EA200391B1A /* ProjectEditorView.swift */; };
@@ -70,13 +70,13 @@
 		FE1FE7A32A97EC4500EF90C7 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		FE1FE7A52A97EC5500EF90C7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FE4848A42A9EB71A0067971B /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
-		FE4848A62A9EB7400067971B /* VideoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRouter.swift; sourceTree = "<group>"; };
-		FE4849492A96F61C0031FEA4 /* StackCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCoordinator.swift; sourceTree = "<group>"; };
-		FE48494B2A9792C70031FEA4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		FE48494B2A9792C70031FEA4 /* StackCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCoordinator.swift; sourceTree = "<group>"; };
 		FE48494D2A9792E60031FEA4 /* FlowBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowBuilder.swift; sourceTree = "<group>"; };
-		FE48494F2A9792F90031FEA4 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		FE4849512A97930F0031FEA4 /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
-		FE4849532A9793200031FEA4 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		FE4849532A9793200031FEA4 /* Presenter+Presented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presenter+Presented.swift"; sourceTree = "<group>"; };
+		FE9222C42AA13A400017EADC /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		FE9222C62AA2205C0017EADC /* VideoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRouter.swift; sourceTree = "<group>"; };
+		FE9222C82AA242080017EADC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		FEC01C1D2A95524400391B1A /* DashboardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCoordinator.swift; sourceTree = "<group>"; };
 		FEC01C1F2A95525C00391B1A /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		FEC01C242A959EA200391B1A /* ProjectEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectEditorView.swift; sourceTree = "<group>"; };
@@ -185,12 +185,12 @@
 		FE05C7072A951610004D7D20 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				FE48494B2A9792C70031FEA4 /* Coordinator.swift */,
 				FE48494D2A9792E60031FEA4 /* FlowBuilder.swift */,
-				FE4849492A96F61C0031FEA4 /* StackCoordinator.swift */,
-				FE48494F2A9792F90031FEA4 /* Router.swift */,
+				FE9222C82AA242080017EADC /* Coordinator.swift */,
+				FE48494B2A9792C70031FEA4 /* StackCoordinator.swift */,
+				FE9222C42AA13A400017EADC /* Router.swift */,
 				FE4849512A97930F0031FEA4 /* TabCoordinator.swift */,
-				FE4849532A9793200031FEA4 /* Presenter.swift */,
+				FE4849532A9793200031FEA4 /* Presenter+Presented.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -265,7 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				FE4848A42A9EB71A0067971B /* VideoView.swift */,
-				FE4848A62A9EB7400067971B /* VideoRouter.swift */,
+				FE9222C62AA2205C0017EADC /* VideoRouter.swift */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -412,8 +412,6 @@
 			files = (
 				FEC01C1E2A95524400391B1A /* DashboardCoordinator.swift in Sources */,
 				FE05C71C2A951B54004D7D20 /* AppCoordinator.swift in Sources */,
-				FE48494A2A96F61C0031FEA4 /* StackCoordinator.swift in Sources */,
-				FE4848A72A9EB7400067971B /* VideoRouter.swift in Sources */,
 				FE05C71A2A951AF2004D7D20 /* ForgetPasswordView.swift in Sources */,
 				FE05C71E2A951C7A004D7D20 /* DashboardView.swift in Sources */,
 				FE05C7202A952C62004D7D20 /* AppTabBar.swift in Sources */,
@@ -421,16 +419,18 @@
 				FE48494E2A9792E60031FEA4 /* FlowBuilder.swift in Sources */,
 				FE1FE7A42A97EC4500EF90C7 /* CalendarView.swift in Sources */,
 				FE4849522A97930F0031FEA4 /* TabCoordinator.swift in Sources */,
-				FE48494C2A9792C70031FEA4 /* Coordinator.swift in Sources */,
-				FE4849502A9792F90031FEA4 /* Router.swift in Sources */,
+				FE48494C2A9792C70031FEA4 /* StackCoordinator.swift in Sources */,
 				FEC01C292A959FA500391B1A /* ProjectEditorStackCoordinator.swift in Sources */,
-				FE4849542A9793200031FEA4 /* Presenter.swift in Sources */,
+				FE9222C52AA13A400017EADC /* Router.swift in Sources */,
+				FE9222C72AA2205C0017EADC /* VideoRouter.swift in Sources */,
+				FE4849542A9793200031FEA4 /* Presenter+Presented.swift in Sources */,
 				FE05C7182A951AA0004D7D20 /* LoginView.swift in Sources */,
 				FE05C6DC2A9515F5004D7D20 /* FlowApp.swift in Sources */,
 				FE4848A52A9EB71A0067971B /* VideoView.swift in Sources */,
 				FEC01C252A959EA200391B1A /* ProjectEditorView.swift in Sources */,
 				FEC01C202A95525C00391B1A /* LoginRouter.swift in Sources */,
 				FE1FE7A62A97EC5500EF90C7 /* SettingsView.swift in Sources */,
+				FE9222C92AA242080017EADC /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

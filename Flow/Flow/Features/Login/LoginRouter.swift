@@ -7,30 +7,34 @@
 
 import SwiftUI
 
-class LoginRouter: Presented, StackCoordinator {
+class LoginRouter: StackCoordinator, Presented {
     let id: UUID = UUID()
 
     @Published var path: NavigationPath
-    var dismiss: (() -> Void)?
+    var onDismiss: (() -> Void)?
     
     required init(path: NavigationPath) {
         self.path = path
-        self.dismiss = nil
+        self.onDismiss = nil
     }
 
-    required init(dismiss: (() -> Void)? = nil) {
+    required init(onDismiss: (() -> Void)? = nil) {
         self.path = NavigationPath()
-        self.dismiss = dismiss
+        self.onDismiss = onDismiss
     }
 
     init(path: NavigationPath = NavigationPath(),
-         dismiss: (() -> Void)? = nil) {
+         onDismiss: (() -> Void)? = nil) {
         self.path = path
-        self.dismiss = dismiss
+        self.onDismiss = onDismiss
     }
 
     func build() -> some View {
-        LoginView(route: self)
+        LoginView(router: self)
+    }
+
+    func dismiss() {
+        self.onDismiss?()
     }
 }
 

@@ -31,11 +31,10 @@ class AppCoordinator: TabCoordinator, Presenter {
     func logOut() {
         self.shouldLogIn = true
     }
-}
 
-extension AppCoordinator {
     @ViewBuilder func build() -> some View {
-        AppTabBar(appCoordinator: self)
+        AppTabBar(appCoordinator: self,
+                  dashboardCoordinator: .init(appCoordinator: self))
     }
 }
 

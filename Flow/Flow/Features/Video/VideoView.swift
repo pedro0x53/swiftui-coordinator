@@ -7,24 +7,29 @@
 
 import SwiftUI
 
+enum VideoCoordinates: String {
+    case channel
+    case report
+}
+
 struct VideoView: View {
-    @ObservedObject var router: VideoRouter
+    var router: VideRouter
 
     var body: some View {
         VStack {
             Button("Push to Channel") {
-                router.push(VideoRouter.Coordinates.channel)
+                router.push(VideoCoordinates.channel)
             }
 
             Button("Push to Report") {
-                router.push(VideoRouter.Coordinates.report)
+                router.push(VideoCoordinates.report)
             }
 
             Button("Back to Dashboard") {
                 router.popToRoot()
             }
         }
-        .navigationDestination(for: VideoRouter.Coordinates.self) { coordinate in
+        .navigationDestination(for: VideoCoordinates.self) { coordinate in
             switch coordinate {
             case .channel:
                 Text("Channel")
@@ -36,7 +41,10 @@ struct VideoView: View {
 }
 
 struct VideoView_Previews: PreviewProvider {
+    @ObservedObject static var coordinator: DashboardCoordinator = .init(appCoordinator: .init())
     static var previews: some View {
-        VideoView(router: .init(coordinator: DashboardCoordinator(appCoordinator: .init())))
+        NavigationStack(path: VideoView_Previews.$coordinator.path) {
+            VideoView(router: .init(parent: VideoView_Previews.coordinator))
+        }
     }
 }

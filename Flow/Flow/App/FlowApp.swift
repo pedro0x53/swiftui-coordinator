@@ -13,7 +13,7 @@ struct FlowApp: App {
 
     var body: some Scene {
         WindowGroup {
-            appCoordinator.build()
+            AppCoordinator().build()
         }
     }
 }

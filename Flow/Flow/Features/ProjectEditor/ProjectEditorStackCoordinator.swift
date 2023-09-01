@@ -11,26 +11,30 @@ class ProjectEditorStackCoordinator: Presented, StackCoordinator {
     let id: UUID = UUID()
 
     @Published var path: NavigationPath
-    var dismiss: (() -> Void)?
+    var onDismiss: (() -> Void)?
 
     required init(path: NavigationPath) {
-        self.dismiss = nil
+        self.onDismiss = nil
         self.path = path
     }
 
-    required init(dismiss: (() -> Void)? = nil) {
-        self.dismiss = dismiss
+    required init(onDismiss: (() -> Void)? = nil) {
+        self.onDismiss = onDismiss
         self.path = NavigationPath()
     }
 
     init(path: NavigationPath = NavigationPath(),
-         dismiss: (() -> Void)? = nil) {
-        self.dismiss = dismiss
+         onDismiss: (() -> Void)? = nil) {
+        self.onDismiss = onDismiss
         self.path = path
     }
 
     @ViewBuilder func build() -> some View {
         ProjectEditorView(router: self)
+    }
+
+    func dismiss() {
+        self.onDismiss?()
     }
 }
 

@@ -8,35 +8,40 @@
 import SwiftUI
 
 struct DashboardView: View {
-    @ObservedObject var router: DashboardCoordinator
+    @ObservedObject var coordinator: DashboardCoordinator
+
+    init(coordinator: DashboardCoordinator) {
+        self.coordinator = coordinator
+    }
 
     var body: some View {
-        NavigationStack(path: $router.path) {
+        NavigationStack(path: $coordinator.path) {
             VStack {
                 Button("Push to Video") {
-                    router.push(VideoRouter(coordinator: self.router))
+                    coordinator.push(DashboardCoordinates.video)
                 }
 
                 Button("Present Project Editor") {
-                    router.present(sheet: .projectEditor())
+                    coordinator.present(sheet: .projectEditor())
                 }
 
                 Button("Log Out") {
-                    router.logOut()
+                    coordinator.logOut()
                 }
             }
-            .navigationDestination(for: VideoRouter.self) { router in
-                router.build()
+            .navigationDestination(for: DashboardCoordinates.self) { coordinate in
+                switch coordinate {
+                case .video:
+                    coordinator.videoRouter.build()
+                }
             }
             .sheet(
-                isPresented: $router.isPresentingProjectEditor,
+                isPresented: $coordinator.isPresentingProjectEditor,
                 onDismiss: {
-                    self.router.dismiss(sheet: .projectEditor())
+                    self.coordinator.dismiss(sheet: .projectEditor())
                 },
                 content: {
-                    ProjectEditorStackCoordinator(dismiss: {
-                        self.router.dismiss(sheet: .projectEditor())
-                    }).build()
+                    coordinator.projectEditorCoordinator.build()
                 }
             )
         }
@@ -45,6 +50,6 @@ struct DashboardView: View {
 
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        DashboardView(router: .init(appCoordinator: AppCoordinator()))
+        DashboardView(coordinator: .init(appCoordinator: .init()))
     }
 }

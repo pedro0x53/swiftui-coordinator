@@ -18,7 +18,7 @@ struct ProjectEditorView: View {
                 }
 
                 Button("Dismiss") {
-                    router.dismiss?()
+                    router.dismiss()
                 }
             }
             .navigationTitle("FirstStep")
