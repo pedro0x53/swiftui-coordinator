@@ -20,8 +20,19 @@ extension Presenter {
     }
 }
 
-protocol Presented {
-    var dismiss: (() -> Void)? { get set }
+// MARK: Presented
+protocol Presented: AnyObject {
+    var onDismiss: (() -> Void)? { get set }
 
-    init(dismiss: (() -> Void)?)
+    init(onDismiss: (() -> Void)?)
+
+    func dismiss()
+    func onDismiss(perform: @escaping () -> Void) -> Self
+}
+
+extension Presented {
+    @discardableResult func onDismiss(perform: @escaping () -> Void) -> Self {
+        self.onDismiss = perform
+        return self
+    }
 }
