@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-protocol FlowBuilder: AnyObject, ObservableObject, Coordinator {
+protocol FlowBuilder {
     associatedtype Build: View
     @ViewBuilder func build() -> Build
 }

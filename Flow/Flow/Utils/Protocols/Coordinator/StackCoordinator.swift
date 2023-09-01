@@ -7,14 +7,9 @@
 
 import SwiftUI
 
-protocol StackCoordinator: Identifiable, Hashable, AnyObject, ObservableObject, FlowBuilder {
+protocol StackCoordinator: Coordinator, FlowBuilder {
     var path: NavigationPath { get set }
-
     init(path: NavigationPath)
-
-    func push<Flow: Hashable>(_ flow: Flow)
-    func pop()
-    func popToRoot()
 }
 
 extension StackCoordinator {
