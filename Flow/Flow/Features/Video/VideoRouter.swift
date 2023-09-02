@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-class VideRouter: Router {
-    var parent: DashboardCoordinator?
+class VideoRouter: Router {
+    weak var parent: DashboardCoordinator?
 
     required init(parent: DashboardCoordinator? = nil) {
         self.parent = parent
@@ -19,8 +19,8 @@ class VideRouter: Router {
     }
 }
 
-extension VideRouter {
-    static func == (lhs: VideRouter, rhs: VideRouter) -> Bool {
+extension VideoRouter {
+    static func == (lhs: VideoRouter, rhs: VideoRouter) -> Bool {
         lhs.id == rhs.id
     }
 }

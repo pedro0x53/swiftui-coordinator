@@ -1,5 +1,5 @@
 //
-//  LoginRouter.swift
+//  LoginCoordinator.swift
 //  Flow
 //
 //  Created by Pedro Sousa on 22/08/23.
@@ -7,19 +7,21 @@
 
 import SwiftUI
 
-class LoginRouter: StackCoordinator, Presented {
+class LoginCoordinator: StackCoordinator, Presented {
     let id: UUID = UUID()
 
-    @Published var path: NavigationPath
+    @Published var path: NavigationPath = NavigationPath()
+    var breadcrumbs: [any Hashable] = []
+
     var onDismiss: (() -> Void)?
     
-    required init(path: NavigationPath) {
-        self.path = path
+    required init(path: [any Hashable]) {
+        self.breadcrumbs = path
+        path.forEach { self.path.append($0) }
         self.onDismiss = nil
     }
 
     required init(onDismiss: (() -> Void)? = nil) {
-        self.path = NavigationPath()
         self.onDismiss = onDismiss
     }
 
@@ -38,21 +40,14 @@ class LoginRouter: StackCoordinator, Presented {
     }
 }
 
-extension LoginRouter {
-    enum Coordinates: Hashable {
-        case forgetPassword(email: String? = nil)
-
-        func hash(into hasher: inout Hasher) {
-            switch self {
-            case .forgetPassword(let email):
-                hasher.combine(email)
-            }
-        }
+extension LoginCoordinator {
+    enum Coordinates: String, Hashable {
+        case forgetPassword
     }
 }
 
-extension LoginRouter {
-    static func == (lhs: LoginRouter, rhs: LoginRouter) -> Bool {
+extension LoginCoordinator {
+    static func == (lhs: LoginCoordinator, rhs: LoginCoordinator) -> Bool {
         lhs.id == rhs.id
     }
 }

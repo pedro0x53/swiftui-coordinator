@@ -13,15 +13,23 @@ class AppCoordinator: TabCoordinator, Presenter {
     @Published var selectedTab: AppCoordinator.Tabs
     @Published var shouldLogIn: Bool
 
+    var dashboardCoordinator: DashboardCoordinator
+
     required init(selectedTab: AppCoordinator.Tabs) {
         self.shouldLogIn = true
         self.selectedTab = selectedTab
+
+        self.dashboardCoordinator = .init()
+        self.dashboardCoordinator.appCoordinator = self
     }
 
     init(isLoggedIn: Bool = false,
          selectedTab: AppCoordinator.Tabs = .dashboard) {
         self.shouldLogIn = !isLoggedIn
         self.selectedTab = selectedTab
+
+        self.dashboardCoordinator = .init()
+        self.dashboardCoordinator.appCoordinator = self
     }
 
     func select(tab: AppCoordinator.Tabs) {

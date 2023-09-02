@@ -10,6 +10,10 @@ import SwiftUI
 struct ForgetPasswordView: View {
     let email: String?
 
+    init(email: String? = nil) {
+        self.email = email
+    }
+
     var body: some View {
         VStack {
             Text("Forget Password")

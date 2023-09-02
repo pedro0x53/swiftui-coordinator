@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProjectEditorAdditionalView: View {
-    @ObservedObject var router: ProjectEditorStackCoordinator
+    @ObservedObject var router: ProjectCoordinator
 
     var body: some View {
         Text("Second Step")

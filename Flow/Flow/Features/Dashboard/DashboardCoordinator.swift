@@ -7,47 +7,45 @@
 
 import SwiftUI
 
-enum DashboardCoordinates: Hashable {
-    case video
-}
-
 enum DashboardSheets: Hashable {
-    case projectEditor(projectName: String? = nil)
+    case projectEditor
 }
 
 class DashboardCoordinator: StackCoordinator {
     let id: UUID = UUID()
 
-    var appCoordinator: AppCoordinator
-    var projectEditorCoordinator: ProjectEditorStackCoordinator
-    var videoRouter: VideRouter
+    weak var appCoordinator: AppCoordinator?
+    var projectEditorCoordinator: ProjectCoordinator
+    var videoRouter: VideoRouter
 
-    @Published var path: NavigationPath
     @Published var isPresentingProjectEditor: Bool = false
+    @Published var path: NavigationPath = NavigationPath()
+    var breadcrumbs: [any Hashable] = []
 
-    required init(path: NavigationPath) {
+    required init(path: [any Hashable]) {
         fatalError("Use the conveniece initializer init(appCoordinator:path:isPresentingProjectEditor:)")
     }
 
-    init(appCoordinator: AppCoordinator,
-         path: NavigationPath = NavigationPath(),
+    init(appCoordinator: AppCoordinator? = nil,
+         path: [any Hashable] = [],
          isPresentingProjectEditor: Bool = false) {
         self.appCoordinator = appCoordinator
-        self.path = path
         self.isPresentingProjectEditor = isPresentingProjectEditor
+        self.breadcrumbs = path
 
-        let projectEditor = ProjectEditorStackCoordinator()
+        let projectEditor = ProjectCoordinator()
         self.projectEditorCoordinator = projectEditor
 
-        let videoRouter = VideRouter()
+        let videoRouter = VideoRouter()
         self.videoRouter = videoRouter
 
+        self.videoRouter.parent = self
 
         self.projectEditorCoordinator.onDismiss {
-            self.dismiss(sheet: .projectEditor())
+            self.dismiss(sheet: .projectEditor)
         }
 
-        self.videoRouter.parent = self
+        path.forEach { self.path.append($0) }
     }
 
     @ViewBuilder func build() -> some View {
@@ -56,7 +54,7 @@ class DashboardCoordinator: StackCoordinator {
 
     func logOut() {
         self.popToRoot()
-        appCoordinator.logOut()
+        appCoordinator?.logOut()
     }
 }
 

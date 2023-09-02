@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ProjectEditorView: View {
-    @ObservedObject var router: ProjectEditorStackCoordinator
+    @ObservedObject var router: ProjectCoordinator
 
     var body: some View {
         NavigationStack(path: $router.path) {
             VStack {
                 Button("Go to Second Step") {
-                    router.push(ProjectEditorStackCoordinator.Coordinates.additional)
+                    router.push(ProjectCoordinator.Coordinates.additional)
                 }
 
                 Button("Dismiss") {
@@ -22,7 +22,7 @@ struct ProjectEditorView: View {
                 }
             }
             .navigationTitle("FirstStep")
-            .navigationDestination(for: ProjectEditorStackCoordinator.Coordinates.self) { _ in
+            .navigationDestination(for: ProjectCoordinator.Coordinates.self) { _ in
                 ProjectEditorAdditionalView(router: self.router)
             }
         }

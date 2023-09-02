@@ -7,15 +7,18 @@
 
 import SwiftUI
 
-class ProjectEditorStackCoordinator: Presented, StackCoordinator {
+class ProjectCoordinator: Presented, StackCoordinator {
     let id: UUID = UUID()
 
-    @Published var path: NavigationPath
+    @Published var path: NavigationPath = NavigationPath()
+    var breadcrumbs: [any Hashable] = []
+
     var onDismiss: (() -> Void)?
 
-    required init(path: NavigationPath) {
+    required init(path: [any Hashable]) {
         self.onDismiss = nil
-        self.path = path
+        self.breadcrumbs = path
+        path.forEach { self.path.append($0) }
     }
 
     required init(onDismiss: (() -> Void)? = nil) {
@@ -23,10 +26,11 @@ class ProjectEditorStackCoordinator: Presented, StackCoordinator {
         self.path = NavigationPath()
     }
 
-    init(path: NavigationPath = NavigationPath(),
+    init(path: [any Hashable],
          onDismiss: (() -> Void)? = nil) {
         self.onDismiss = onDismiss
-        self.path = path
+        self.breadcrumbs = path
+        path.forEach { self.path.append($0) }
     }
 
     @ViewBuilder func build() -> some View {
@@ -38,7 +42,7 @@ class ProjectEditorStackCoordinator: Presented, StackCoordinator {
     }
 }
 
-extension ProjectEditorStackCoordinator {
+extension ProjectCoordinator {
     enum Coordinates: String, Hashable {
         case additional
 
@@ -48,8 +52,8 @@ extension ProjectEditorStackCoordinator {
     }
 }
 
-extension ProjectEditorStackCoordinator {
-    static func == (lhs: ProjectEditorStackCoordinator, rhs: ProjectEditorStackCoordinator) -> Bool {
+extension ProjectCoordinator {
+    static func == (lhs: ProjectCoordinator, rhs: ProjectCoordinator) -> Bool {
         lhs.id == rhs.id
     }
 }

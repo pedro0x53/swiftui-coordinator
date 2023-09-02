@@ -18,11 +18,15 @@ extension Router {
         self.parent?.push(flow)
     }
 
-    func pop() {
-        self.parent?.pop()
+    func pop(_ k: Int = 1) {
+        self.parent?.pop(k)
     }
 
     func popToRoot() {
         self.parent?.popToRoot()
+    }
+
+    func pop<Flow: Hashable>(to flow: Flow) {
+        self.parent?.pop(to: flow)
     }
 }

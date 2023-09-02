@@ -9,6 +9,7 @@ import Foundation
 
 protocol Coordinator: Identifiable, Hashable, AnyObject, ObservableObject {
     func push<Flow: Hashable>(_ flow: Flow)
-    func pop()
+    func pop(_ k: Int)
     func popToRoot()
+    func pop<Flow: Hashable>(to flow: Flow)
 }

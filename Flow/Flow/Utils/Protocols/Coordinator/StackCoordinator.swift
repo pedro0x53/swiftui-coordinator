@@ -9,30 +9,29 @@ import SwiftUI
 
 protocol StackCoordinator: Coordinator, FlowBuilder {
     var path: NavigationPath { get set }
-    init(path: NavigationPath)
+    var breadcrumbs: [any Hashable] { get set }
+    init(path: [any Hashable])
 }
 
 extension StackCoordinator {
     func push<Flow: Hashable>(_ flow: Flow) {
+        self.breadcrumbs.append(flow)
         self.path.append(flow)
     }
 
-    func pop() {
-        self.path.removeLast()
+    func pop(_ k: Int = 1) {
+        self.breadcrumbs.removeLast(k)
+        self.path.removeLast(k)
     }
 
     func popToRoot() {
+        self.breadcrumbs = []
         path = NavigationPath()
     }
-}
 
-
-extension Hashable where Self: Identifiable {
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(self.id)
+    func pop<Flow: Hashable>(to flow: Flow) {
+        guard let flowIndex = (self.breadcrumbs.firstIndex { $0.hashValue == flow.hashValue })
+        else { return }
+        self.pop(self.breadcrumbs.count - flowIndex - 1)
     }
-}
-
-public extension RawRepresentable where Self: Identifiable, RawValue == String {
-    var id: String { self.rawValue }
 }

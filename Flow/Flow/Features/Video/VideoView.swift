@@ -13,7 +13,7 @@ enum VideoCoordinates: String {
 }
 
 struct VideoView: View {
-    var router: VideRouter
+    var router: VideoRouter
 
     var body: some View {
         VStack {
@@ -34,7 +34,12 @@ struct VideoView: View {
             case .channel:
                 Text("Channel")
             case .report:
-                Text("Report")
+                VStack {
+                    Text("Report")
+                    Button("Back to Video") {
+                        router.pop(to: self.router)
+                    }
+                }
             }
         }
     }

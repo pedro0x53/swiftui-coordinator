@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct LoginView: View {
-    @ObservedObject var router: LoginRouter
+    @ObservedObject var router: LoginCoordinator
 
     var body: some View {
         NavigationStack(path: $router.path) {
             VStack {
                 Button("Push to forget Password") {
-                    router.push(LoginRouter.Coordinates.forgetPassword())
+                    router.push(LoginCoordinator.Coordinates.forgetPassword)
                 }
 
                 Button("Go to Dashboard") {
@@ -22,10 +22,10 @@ struct LoginView: View {
                 }
             }
             .navigationTitle("Login")
-            .navigationDestination(for: LoginRouter.Coordinates.self) { coordinate in
+            .navigationDestination(for: LoginCoordinator.Coordinates.self) { coordinate in
                 switch coordinate {
-                case .forgetPassword(email: let email):
-                    ForgetPasswordView(email: email)
+                case .forgetPassword:
+                    ForgetPasswordView()
                 }
             }
         }
@@ -34,6 +34,6 @@ struct LoginView: View {
 
 struct LoginViewPreview: PreviewProvider {
     static var previews: some View {
-        LoginRouter().build()
+        LoginCoordinator().build()
     }
 }

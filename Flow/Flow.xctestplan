@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "06DF1EC1-84F6-47CD-B5EE-C9C55C945D51",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:Flow.xcodeproj",
+          "identifier" : "FE05C6D72A9515F5004D7D20",
+          "name" : "Flow"
+        }
+      ]
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Flow.xcodeproj",
+      "identifier" : "FE05C6D72A9515F5004D7D20",
+      "name" : "Flow"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Flow.xcodeproj",
+        "identifier" : "FE05C6E72A9515F7004D7D20",
+        "name" : "FlowTests"
+      }
+    }
+  ],
+  "version" : 1
+}
